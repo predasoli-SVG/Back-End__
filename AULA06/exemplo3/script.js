@@ -3,5 +3,9 @@ function mudarcor() {
 }
 
 function mudarfundo(){
-    document.getElementById("titulo").style.backgroundColor = "blue";
+    document.getElementById("paragrafo").style.backgroundColor = "blue";
+}
+
+function esconder(){
+    document.getElementById("subtitulo").style.display = "none";
 }
