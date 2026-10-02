@@ -23,3 +23,5 @@ if(idade2 < 12){
 } else {
     console.log ("você é um adulto 🏆")
 }
+
+
