@@ -23,4 +23,4 @@
     401 = só entregamos para clientes 🔒
     429 = muitos pedidos, aguarde ⏳
 
-    
+        
