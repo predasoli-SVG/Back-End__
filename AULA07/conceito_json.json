@@ -1,0 +1,16 @@
+{
+    "cachorro":{
+        "nome": "rex",
+        "idade":3,
+        "raca": "Labrador",
+        "vacinado": true,
+        "peso": 25.5,
+        "brinquedos": ["bola","osso","frisbee"],
+        "dono":{
+            "nome":"joão",
+            "telefone":"1199999999"
+            
+        }
+    }
+
+}
