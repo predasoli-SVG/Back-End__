@@ -13,11 +13,11 @@ const express = require ("express");
 // import o CORS para permitir requisição de outros dominios (ex: front-end)
 const cors = require("cors");
 // importar o modulo de arquivos NODE 
-const fs = requiere("fs")
+const fs = require("fs") // CORRIGIDO: de 'requiere' para 'require'
 // importar a utilidades para trabalhar com caminho de arquivos
 const path = require ("path");
 // Impostar o aqrquivo JSON que contem as raças e fotos 
-const cachorros = require ("./data/dogs.json")
+const cachorros = require("../data/dogs.json");
 // criar a aplicação Express 
 const app = express();
 // definir a porta q o servidor vai funcionar
@@ -51,10 +51,10 @@ app.use(
     // math.random() * array.length - Multiplica o número sorteado pela quantidade de itens
     // math.floor() - tira a parte decimal, arredondando para baixo.
     
-    const i = Math.floor(Math.ranfom) * array.lenght
+    const i = Math.floor(Math.random() * array.length) // CORRIGIDO: de 'Math.ranfom' e 'array.lenght' para 'Math.random()' e 'array.length'
     // const i = guara a posição na variavel i 
      // retorna um  item sorteado
-        return array [1];
+        return array [i]; // CORRIGIDO: de 'array' para 'array [i]' para usar a variável do sorteio
 
     }
 
@@ -68,9 +68,9 @@ app.get("/api/cachorro/aleatorio", (req, res) => {
 // pegar todas as fotos as racas
 // object.values pega os valores
 // flat transformar em unico array 
-const todasAsFotos = object.values(cachorros).flat();
+const todasAsFotos = Object.values(cachorros).flat(); // CORRIGIDO: de 'object.values' para 'Object.values' com 'O' maiúsculo
 
-})
+
 
 // sorteia uma foto aleatoria
 const item = sortear(todasAsFotos)
@@ -80,7 +80,8 @@ res.json({
     // status da respostas
     status: "sucess",
     // URL da imagem que foi sorteada
-    message: 'http://localhost:${PORT}/fotos/${item}' 
+    message: `http://localhost:${PORT}/fotos/${item}` // CORRIGIDO: de aspas simples para crases ` ` para o PORT e {item} funcionarem
+})
 })
 
 // ROTA 2 - Cachorro por raça
@@ -118,9 +119,11 @@ const item = sortear(cachorros[raca]);
 
 })
 app.listen(PORT, () => {
-    
+    console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+    console.log(`📁 Coloque as fotos manualmente em: data/fotos/`);
+
 })
 
-
-
-
+// ROTA 2 - cachorro por raca
+// exemplo de acesso 
+// http://localhost:3000/api/cachorros/husky
